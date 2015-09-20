@@ -352,7 +352,7 @@ void resolveHanoi( int *mtz, int pil, int numD, int disco, int tamDiscMaior, int
 }
 
 int imprimeMenu(int opcao){
-    int menu;
+    int numero;
 
 
     if(opcao == 2){
@@ -365,9 +365,9 @@ int imprimeMenu(int opcao){
         printf("Aparecer%c desenhado na tela o passo a passo de como resolver o problema da TORRE DE HANOI\n\n", 160);
 
         printf("Digite (4) para voltar ao menu ou (1) para ir direto ao programa: ");
-        scanf("%d", &menu);
+        scanf("%d", &numero);
 
-        return menu;
+        return numero;
     }
 
     if(opcao == 3){
@@ -382,9 +382,9 @@ int imprimeMenu(int opcao){
         printf("Fonte: https://pt.wikipedia.org/wiki/Torre_de_Hanoi\n\n");
 
         printf("Digite (4) para voltar ao menu ou (1) para ir direto ao programa: ");
-        scanf("%d", &menu);
+        scanf("%d", &numero);
 
-        return menu;
+        return numero;
 
     }
 
