@@ -320,11 +320,11 @@ void ResolveHanoi( int *mtz, int pil, int numD, int disco, int tamDiscMaior, int
     if(disco == 1){
         MoverDisco( mtz, pil, numD, tamDiscMaior, O, D);
 
-        printf("\n");
-        for (i = 0; i <= (tamDiscMaior*3)+8; i++) {
-            printf("*");
-        }
-        printf("\n");
+        printf("\n");                               //
+        for (i = 0; i <= (tamDiscMaior*3)+8; i++) { //
+            printf("*");                            // Imprime a Divisão dos Passos
+        }                                           //
+        printf("\n");                               //
 
     }
     else{
@@ -332,11 +332,11 @@ void ResolveHanoi( int *mtz, int pil, int numD, int disco, int tamDiscMaior, int
 
         MoverDisco(mtz, pil, numD, tamDiscMaior, O, D);
 
-        printf("\n");
-        for (i = 0; i <= (tamDiscMaior*3)+8; i++) {
-            printf("*");
-        }
-        printf("\n\n");
+        printf("\n");                               //
+        for (i = 0; i <= (tamDiscMaior*3)+8; i++) { //
+            printf("*");                            // Imprime a Divisão dos Passos
+        }                                           //
+        printf("\n\n");                             //
 
         ResolveHanoi(mtz, pil, numD, disco-1, tamDiscMaior, A, O, D);
     }
