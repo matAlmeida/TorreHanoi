@@ -246,16 +246,11 @@ int main(){
 
     imprimeDisco( matriz, pilhas, numD, tamDiscMaior); // Imprime na tela o passo 0 que são todos os discos empilhados na pilha 0
 
-    if (numD > 2) {                                                //
-        for (i = 0; i < (tamDiscMaior*3)+(tamDiscMaior/2); i++) {  //
-            printf("*");                                           //
-        }                                                          // IMPRIME 1ª SEPARAÇÃO
-    }                                                              // COM '*'
-    else                                                           //
-        for (i = 0; i < tamDiscMaior*4; i++) {                     //
-            printf("*");                                           //
-        }                                                          //
-    printf("\n");                                                  //
+    printf("\n");
+    for (i = 0; i < (tamDiscMaior*2)+(8*3); i++) {
+        printf("*");
+    }
+    printf("\n");
 
     resolveHanoi( matriz, pilhas, numD, numD, tamDiscMaior, 0, 1, 2); // Começa a Resolver a TORRE DE HANOI apartir da recursividade
 
@@ -318,16 +313,11 @@ void resolveHanoi( int *mtz, int pil, int numD, int disco, int tamDiscMaior, int
     if(disco == 1){
         moverDisco( mtz, pil, numD, tamDiscMaior, O, D);
 
-        if (numD > 2) {                                                //
-            for (i = 0; i < (tamDiscMaior*3)+(tamDiscMaior/2); i++) {  //
-                printf("*");                                           //
-            }                                                          // IMPRIME SEPARAÇÃO
-        }                                                              // COM '*'
-        else                                                           //
-            for (i = 0; i < tamDiscMaior*4; i++) {                     //
-                printf("*");                                           //
-            }                                                          //
-        printf("\n");                                                  //
+        printf("\n");
+        for (i = 0; i < (tamDiscMaior*2)+(8*3); i++) {
+            printf("*");
+        }
+        printf("\n");
 
     }
     else{
@@ -335,16 +325,11 @@ void resolveHanoi( int *mtz, int pil, int numD, int disco, int tamDiscMaior, int
 
         moverDisco(mtz, pil, numD, tamDiscMaior, O, D);
 
-        if (numD > 2) {                                                //
-            for (i = 0; i < (tamDiscMaior*3)+(tamDiscMaior/2); i++) {  //
-                printf("*");                                           //
-            }                                                          //
-        }                                                              // IMPRIME SEPARAÇÃO
-        else                                                           // COM '*'
-            for (i = 0; i < tamDiscMaior*4; i++) {                     //
-                printf("*");                                           //
-            }                                                          //
-        printf("\n");                                                  //
+        printf("\n");
+        for (i = 0; i < (tamDiscMaior*2)+(8*3); i++) {
+            printf("*");
+        }
+        printf("\n\n");
 
         resolveHanoi(mtz, pil, numD, disco-1, tamDiscMaior, A, O, D);
     }
