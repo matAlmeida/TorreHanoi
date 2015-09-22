@@ -168,16 +168,16 @@ void resolveHanoi( int* , int , int , int , int , int , int , int );
 int imprimeMenu(int);
 
 int main(){
-    int numD; // Numero de Discos da Torre de Hanoi
-    int *matriz; // Matriz onde ira ser armazenado a Torre de Hanoi
-    int pilhas = 3; // Numero de astes, pilhas, da Torre de Hanoi
-    int disco = 1; // Vai dizer o numero de discos a ser posto em cada linha x coluna da matriz
-    int tamDiscMaior; // Armazena o tamanho do disco maior
-    int i, j; // Contadores
     int opcao; // Opção do menu escolhida pelo usuario
 
     do {
         system("CLS");
+        int numD; // Numero de Discos da Torre de Hanoi
+        int *matriz; // Matriz onde ira ser armazenado a Torre de Hanoi
+        int pilhas = 3; // Numero de astes, pilhas, da Torre de Hanoi
+        int disco = 1; // Vai dizer o numero de discos a ser posto em cada linha x coluna da matriz
+        int tamDiscMaior; // Armazena o tamanho do disco maior
+        int i, j; // Contadores
 
         printf("Ol%c Bem vindo ao programa TABELA DE HANOI.\n", 160);
         printf("Neste programa voc%c vai entrar com o numero de discos que a torre ter%c\n", 136, 160);
@@ -189,6 +189,8 @@ int main(){
         switch (opcao)
         {
             case 1:
+
+
                 system("CLS");
 
                 printf("Digite o numero de Discos da Torre, entre 1 e 10: ");
