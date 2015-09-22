@@ -52,6 +52,7 @@
 
 #include <stdlib.h>
 #include <stdio.h>
+#include <math.h>
 
 /****
 *
@@ -247,12 +248,14 @@ int main(){
     imprimeDisco( matriz, pilhas, numD, tamDiscMaior); // Imprime na tela o passo 0 que são todos os discos empilhados na pilha 0
 
     printf("\n");
-    for (i = 0; i < (tamDiscMaior*2)+(8*3); i++) {
+    for (i = 0; i <= (tamDiscMaior*3)+8; i++) {
         printf("*");
     }
     printf("\n");
 
     resolveHanoi( matriz, pilhas, numD, numD, tamDiscMaior, 0, 1, 2); // Começa a Resolver a TORRE DE HANOI apartir da recursividade
+
+    printf("\n\n%.0lf passos necessarios para resolver o problema.\n\n", pow(numD, 2)-1);
 
     free(matriz); // Libera a memoria usada para fazer a Matriz onde foi montada a TORRE DE HANOI
 
@@ -314,7 +317,7 @@ void resolveHanoi( int *mtz, int pil, int numD, int disco, int tamDiscMaior, int
         moverDisco( mtz, pil, numD, tamDiscMaior, O, D);
 
         printf("\n");
-        for (i = 0; i < (tamDiscMaior*2)+(8*3); i++) {
+        for (i = 0; i <= (tamDiscMaior*3)+8; i++) {
             printf("*");
         }
         printf("\n");
@@ -326,7 +329,7 @@ void resolveHanoi( int *mtz, int pil, int numD, int disco, int tamDiscMaior, int
         moverDisco(mtz, pil, numD, tamDiscMaior, O, D);
 
         printf("\n");
-        for (i = 0; i < (tamDiscMaior*2)+(8*3); i++) {
+        for (i = 0; i <= (tamDiscMaior*3)+8; i++) {
             printf("*");
         }
         printf("\n\n");
