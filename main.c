@@ -53,6 +53,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <math.h>
+#include <string.h>
 
 /****
 *
@@ -226,6 +227,8 @@ int main(){
 
                 tamDiscMaior = disco;
 
+                getchar(); // Congela a tela ate o usuario apertar enter
+
                 ImprimeDisco( matriz, pilhas, numD, tamDiscMaior); // Imprime na tela o passo 0 que são todos os discos empilhados na pilha 0
 
                 printf("\n");                               //
@@ -233,6 +236,8 @@ int main(){
                     printf("*");                            // Imprime a primeira Divisão dos Passos
                 }                                           //
                 printf("\n");                               //
+
+                getchar(); // Congela a tela ate o usuario apertar enter
 
                 ResolveHanoi( matriz, pilhas, numD, numD, tamDiscMaior, 0, 1, 2); // Começa a Resolver a TORRE DE HANOI apartir da recursividade
 
@@ -325,6 +330,7 @@ void ResolveHanoi( int *mtz, int pil, int numD, int disco, int tamDiscMaior, int
             printf("*");                            // Imprime a Divisão dos Passos
         }                                           //
         printf("\n");                               //
+        getchar(); // Congela a tela ate o usuario apertar enter
 
     }
     else{
@@ -337,6 +343,7 @@ void ResolveHanoi( int *mtz, int pil, int numD, int disco, int tamDiscMaior, int
             printf("*");                            // Imprime a Divisão dos Passos
         }                                           //
         printf("\n\n");                             //
+        getchar(); // Congela a tela ate o usuario apertar enter
 
         ResolveHanoi(mtz, pil, numD, disco-1, tamDiscMaior, A, O, D);
     }
