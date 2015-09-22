@@ -56,7 +56,7 @@
 
 /****
 *
-* Título: imprimeDisco
+* Título: ImprimeDisco
 *
 * Autor: Matheus Almeida
 *
@@ -78,11 +78,11 @@
 *
 ****/
 
-void imprimeDisco( int* , int, int, int );
+void ImprimeDisco( int* , int, int, int );
 
 /****
 *
-* Título: moverDisco
+* Título: MoverDisco
 *
 * Autor: Matheus Almeida
 *
@@ -109,11 +109,11 @@ void imprimeDisco( int* , int, int, int );
 *
 ****/
 
-void moverDisco( int* , int , int , int , int , int );
+void MoverDisco( int* , int , int , int , int , int );
 
 /****
 *
-* Título: resolveHanoi
+* Título: ResolveHanoi
 *
 * Autor: Matheus Almeida
 *
@@ -138,16 +138,16 @@ void moverDisco( int* , int , int , int , int , int );
 *
 ****/
 
-void resolveHanoi( int* , int , int , int , int , int , int , int );
+void ResolveHanoi( int* , int , int , int , int , int , int , int );
 
 /****
 *
-* Título: imprimeMenu
+* Título: ImprimeMenu
 *
 * Autor: Matheus Almeida
 *
 * Data de Criação: 20 de Setembro de 2015
-* Última modificação: 20 de Setembro de 2015
+* Última modificação: 21 de Setembro de 2015
 *
 * Descrição: Imprime o menu com as opções que o usuario pode escolher.
 *
@@ -165,7 +165,7 @@ void resolveHanoi( int* , int , int , int , int , int , int , int );
 *
 ****/
 
-int imprimeMenu(int);
+int ImprimeMenu(int);
 
 int main(){
     int opcao; // Opção do menu escolhida pelo usuario
@@ -184,7 +184,7 @@ int main(){
         printf("E depois ir%c mostrar o passo a passo de como resolver o problema.\n", 160);
         printf("\nDesenvolvido por Matheus Almeida.\n");
         printf("\n");
-        opcao = imprimeMenu(4);
+        opcao = ImprimeMenu(4); // Imprime o menu com as opções
 
         switch (opcao)
         {
@@ -194,15 +194,15 @@ int main(){
                 system("CLS");
 
                 printf("Digite o numero de Discos da Torre, entre 1 e 10: ");
-                scanf("%d", &numD);
+                scanf("%d", &numD); // Recebe o numero de Discos
                 printf("\n");
 
-                if (numD > 10){ // VERIFICAÇÃO DO NUMERO DE DISCOS 1
+                if (numD > 10){ // VERIFICAÇÃO DO NUMERO DE DISCOS
                     printf("N%co %c possivel utilizar mais de 10 discos na torre por conta de distor%c%co de tela.\n", 198, 130, 135, 198);
                     exit(-1);
                 }
                 else
-                if (numD < 1) { // VERIFICAÇÃO DO NUMERO DE DISCOS 2
+                if (numD < 1) { // VERIFICAÇÃO DO NUMERO DE DISCOS
                     printf("N%co %c possivel utilizar menos de 1 disco na torre.\n", 198, 130);
                     exit(-1);
                 }
@@ -226,15 +226,15 @@ int main(){
 
                 tamDiscMaior = disco;
 
-                imprimeDisco( matriz, pilhas, numD, tamDiscMaior); // Imprime na tela o passo 0 que são todos os discos empilhados na pilha 0
+                ImprimeDisco( matriz, pilhas, numD, tamDiscMaior); // Imprime na tela o passo 0 que são todos os discos empilhados na pilha 0
 
-                printf("\n");
-                for (i = 0; i <= (tamDiscMaior*3)+8; i++) {
-                    printf("*");
-                }
-                printf("\n");
+                printf("\n");                               //
+                for (i = 0; i <= (tamDiscMaior*3)+8; i++) { //
+                    printf("*");                            // Imprime a primeira Divisão dos Passos
+                }                                           //
+                printf("\n");                               //
 
-                resolveHanoi( matriz, pilhas, numD, numD, tamDiscMaior, 0, 1, 2); // Começa a Resolver a TORRE DE HANOI apartir da recursividade
+                ResolveHanoi( matriz, pilhas, numD, numD, tamDiscMaior, 0, 1, 2); // Começa a Resolver a TORRE DE HANOI apartir da recursividade
 
                 printf("\n\n%.0lf passos necessarios para resolver o problema.\n\n", pow(numD, 2)-1);
 
@@ -243,35 +243,35 @@ int main(){
                 system("pause");
             break;
 
-            case 2:
-                opcao = imprimeMenu(2);
+            case 2: // Imprime o Menu Sobre o Programa
+                opcao = ImprimeMenu(2);
             break;
 
-            case 3:
-                opcao = imprimeMenu(3);
+            case 3: // Imprime o Menu Sobre a Torre de Hanoi
+                opcao = ImprimeMenu(3);
             break;
 
-            case 4:
+            case 4: // Sai do Programa
                 opcao = 4;
             break;
 
-            default:
+            default: // Caso digite uma opção inexistente
                 printf("Opcaoo invalida\n");
         } //FINAL DO SWITCH CASE checar
 
-    } while(opcao != 4);
+    } while(opcao != 4); // Fim do Do While
 
     system("CLS && pause");
 
     return 0;
 }
 
-void imprimeDisco( int *mtz, int pil, int numD, int tamDiscMaior ){
+void ImprimeDisco( int *mtz, int pil, int numD, int tamDiscMaior ){
     int i, j, k, espacoBranco;
 
     for(i=numD-1; i >= 0; i--){ // Linhas
-        for(j=0; j < pil; j++){// Colunas
-            espacoBranco = (tamDiscMaior - mtz[numD*j+i])/2;
+        for(j=0; j < pil; j++){ // Colunas
+            espacoBranco = (tamDiscMaior - mtz[numD*j+i])/2; // Conta quantos espaços em branco antes de imprimir os '*'
 
             // Espaços em branco na Esquerda
             for(k=0; k < espacoBranco; k++)
@@ -294,31 +294,31 @@ void imprimeDisco( int *mtz, int pil, int numD, int tamDiscMaior ){
     }
 }
 
-void moverDisco( int *mtz, int pil, int numD, int tamDiscMaior, int pilOrig, int pilDest ){
-    int pO = numD-1, pD = numD-1;
+void MoverDisco( int *mtz, int pil, int numD, int tamDiscMaior, int pilOrig, int pilDest ){
+    int linhaOri = numD-1, linhaDest = numD-1;
 
-    while(pO >= 0 && mtz[numD*pilOrig+pO] == 0)    // Encontra o Disco da camada mais alta da Pilha de Origem
-        pO--;                                      //
-    if(pO < 0)                                     // Corrige a localização da Matriz para impedir erro de memoria
-        pO = 0;                                    //
+    while(linhaOri >= 0 && mtz[numD*pilOrig+linhaOri] == 0)    // Encontra o Disco da camada mais alta da Pilha de Origem
+        linhaOri--;                                      //
+    if(linhaOri < 0)                                     // Corrige a localização da Matriz para impedir erro de memoria
+        linhaOri = 0;                                    //
 
-    while(pD >= 0 && mtz[numD*pilDest+pD] == 0)    // Encontra o Disco da camada mais baixa da Pilha de Destino.
-        pD--;                                      // Sempre ficando 1 posiçao abaixo do disco mais baixo.
-
-
-    mtz[numD*pilDest+pD+1] = mtz[numD*pilOrig+pO]; // Copia o Disco mais alto da Origem pro mais baixo do Destino
-    mtz[numD*pilOrig+pO] = 0;                      // Deixa o Disco mais alto da Origem em Branco
+    while(linhaDest >= 0 && mtz[numD*pilDest+linhaDest] == 0)    // Encontra o Disco da camada mais baixa da Pilha de Destino.
+        linhaDest--;                                             // Sempre ficando 1 posiçao abaixo do disco mais baixo.
 
 
-    imprimeDisco( mtz, pil, numD, tamDiscMaior);   // Imprime a Nova Posicao do Disco
+    mtz[numD*pilDest+linhaDest+1] = mtz[numD*pilOrig+linhaOri]; // Copia o Disco mais alto da Origem pro mais baixo do Destino
+    mtz[numD*pilOrig+linhaOri] = 0;                             // Deixa o Disco mais alto da Origem em Branco
+
+
+    ImprimeDisco( mtz, pil, numD, tamDiscMaior);   // Imprime a Nova Posicao do Disco
 
 }
 
-void resolveHanoi( int *mtz, int pil, int numD, int disco, int tamDiscMaior, int O, int A, int D ){
+void ResolveHanoi( int *mtz, int pil, int numD, int disco, int tamDiscMaior, int O, int A, int D ){
     int i;
 
     if(disco == 1){
-        moverDisco( mtz, pil, numD, tamDiscMaior, O, D);
+        MoverDisco( mtz, pil, numD, tamDiscMaior, O, D);
 
         printf("\n");
         for (i = 0; i <= (tamDiscMaior*3)+8; i++) {
@@ -328,9 +328,9 @@ void resolveHanoi( int *mtz, int pil, int numD, int disco, int tamDiscMaior, int
 
     }
     else{
-        resolveHanoi(mtz, pil, numD, disco-1, tamDiscMaior, O, D, A);
+        ResolveHanoi(mtz, pil, numD, disco-1, tamDiscMaior, O, D, A);
 
-        moverDisco(mtz, pil, numD, tamDiscMaior, O, D);
+        MoverDisco(mtz, pil, numD, tamDiscMaior, O, D);
 
         printf("\n");
         for (i = 0; i <= (tamDiscMaior*3)+8; i++) {
@@ -338,12 +338,12 @@ void resolveHanoi( int *mtz, int pil, int numD, int disco, int tamDiscMaior, int
         }
         printf("\n\n");
 
-        resolveHanoi(mtz, pil, numD, disco-1, tamDiscMaior, A, O, D);
+        ResolveHanoi(mtz, pil, numD, disco-1, tamDiscMaior, A, O, D);
     }
 
 }
 
-int imprimeMenu(int opcao){
+int ImprimeMenu(int opcao){
     char numero[255];
 
 
