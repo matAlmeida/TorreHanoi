@@ -168,28 +168,28 @@ void resolveHanoi( int* , int , int , int , int , int , int , int );
 int imprimeMenu(int);
 
 int main(){
-    int numD, *matriz, pilhas = 3;
-    int i, j, disco = 1, tamDiscMaior;
-    int checar, opcao = 0;
+    int numD; // Numero de Discos da Torre de Hanoi
+    int *matriz; // Matriz onde ira ser armazenado a Torre de Hanoi
+    int pilhas = 3; // Numero de astes, pilhas, da Torre de Hanoi
+    int disco = 1; // Vai dizer o numero de discos a ser posto em cada linha x coluna da matriz
+    int tamDiscMaior; // Armazena o tamanho do disco maior
+    int i, j; // Contadores
+    int opcao; // Opção do menu escolhida pelo usuario
 
     do {
-        system("CLS || clear");
+        system("CLS");
 
         printf("Ol%c Bem vindo ao programa TABELA DE HANOI.\n", 160);
         printf("Neste programa voc%c vai entrar com o numero de discos que a torre ter%c\n", 136, 160);
         printf("E depois ir%c mostrar o passo a passo de como resolver o problema.\n", 160);
         printf("\nDesenvolvido por Matheus Almeida.\n");
         printf("\n");
-        printf("(1) Para rodar o programa.\n");
-        printf("(2) Para saber mais sobre o programa.\n");
-        printf("(3) Para saber mais sobre a TORRE DE HANOI.\n");
-        printf("(0) Para sair do programa.\n");
-        scanf("%d", &checar );
+        opcao = imprimeMenu(4);
 
-        switch (checar)
+        switch (opcao)
         {
             case 1:
-                opcao = 1;
+
             break;
 
             case 2:
@@ -201,7 +201,7 @@ int main(){
             break;
 
             case 0:
-                system("CLS || clear");
+                system("CLS");
                 exit(-1);
             break;
 
@@ -211,7 +211,7 @@ int main(){
 
     } while(opcao != 1);
 
-    system("CLS || clear");
+    system("CLS");
 
     printf("Digite o numero de Discos da Torre, entre 1 e 10: ");
     scanf("%d", &numD);
@@ -340,11 +340,11 @@ void resolveHanoi( int *mtz, int pil, int numD, int disco, int tamDiscMaior, int
 }
 
 int imprimeMenu(int opcao){
-    int numero;
+    char numero[255];
 
 
     if(opcao == 2){
-        system("CLS || clear");
+        system("CLS");
         printf("Sobre a entrada:\n\n");
         printf("Na inicializa%c%co do programa ser%c pedido o n%cmero de discos que voc%c quer que o\n", 135, 198, 160, 163, 136);
         printf("problema da TORRE DE HANOI tenha, para que o algoritimo resolva em seguida. Lembrando\n");
@@ -353,13 +353,13 @@ int imprimeMenu(int opcao){
         printf("Aparecer%c desenhado na tela o passo a passo de como resolver o problema da TORRE DE HANOI\n\n", 160);
 
         printf("Digite (4) para voltar ao menu ou (1) para ir direto ao programa: ");
-        scanf("%d", &numero);
+        gets(numero);
 
-        return numero;
+        return atoi(numero);
     }
-
+    else
     if(opcao == 3){
-        system("CLS || clear");
+        system("CLS");
         printf("Torre de Hanoi ou Torre de Lucas %c um \"quebra-cabe%ca\" que consiste em uma base contendo tr%cs pinos,\n", 130, 135, 136);
         printf("em um dos quais s%co dispostos alguns discos uns sobre os outros, em ordem crescente de di%cmetro,\n", 198, 131);
         printf("de cima para baixo. O problema consiste em passar todos os discos de um pino para outro qualquer,\n");
@@ -370,10 +370,19 @@ int imprimeMenu(int opcao){
         printf("Fonte: https://pt.wikipedia.org/wiki/Torre_de_Hanoi\n\n");
 
         printf("Digite (4) para voltar ao menu ou (1) para ir direto ao programa: ");
-        scanf("%d", &numero);
+        gets(numero);
 
-        return numero;
+        return atoi(numero);
+    }
+    else
+    if(opcao == 4){
+        printf("(1) Para rodar o programa.\n");
+        printf("(2) Para saber mais sobre o programa.\n");
+        printf("(3) Para saber mais sobre a TORRE DE HANOI.\n");
+        printf("(4) Para sair do programa.\n");
+        gets(numero);
 
+        return atoi(numero);
     }
 
 }
