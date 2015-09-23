@@ -189,75 +189,77 @@ int main(){
         switch (opcao)
         {
             case 1:
+                system("CLS");
 
+                printf("Digite o numero de Discos da Torre, entre 1 e 10: ");
+                scanf("%d", &numD);
+                printf("\n");
+
+                if (numD > 10){ // VERIFICAÇÃO DO NUMERO DE DISCOS 1
+                    printf("N%co %c possivel utilizar mais de 10 discos na torre por conta de distor%c%co de tela.\n", 198, 130, 135, 198);
+                    exit(-1);
+                }
+                else
+                if (numD < 1) { // VERIFICAÇÃO DO NUMERO DE DISCOS 2
+                    printf("N%co %c possivel utilizar menos de 1 disco na torre.\n", 198, 130);
+                    exit(-1);
+                }
+
+                matriz = malloc(sizeof(int)*pilhas*numD); // ALOCA A MATRIZ ONDE OS DISCOS SERÃO DESENHADOS
+
+                if(matriz == NULL){
+                printf("FALTA DE MEMORIA!");
+                exit(-1);
+                } // FINAL DA VERIFICAÇÃO DA MATRIZ
+
+                for(i=0; i< pilhas; i++)              // CRIA A TORRE NA PILHA 0 DA MATRIZ --- Número de Colunas
+                    for(j=numD-1; j >= 0 ; j--)       // Número de Linhas
+                        if(i==0){                     //
+                            matriz[numD*i+j] = disco; // Define Tamanho
+                            disco += 2;               // Do Disco Maior
+                        }                             //
+                        else{                         //
+                            matriz[numD*i+j] = 0;     // Deixa todas as posições das pilhas 1 e 2 vazias
+                        }
+
+                tamDiscMaior = disco;
+
+                imprimeDisco( matriz, pilhas, numD, tamDiscMaior); // Imprime na tela o passo 0 que são todos os discos empilhados na pilha 0
+
+                printf("\n");
+                for (i = 0; i <= (tamDiscMaior*3)+8; i++) {
+                    printf("*");
+                }
+                printf("\n");
+
+                resolveHanoi( matriz, pilhas, numD, numD, tamDiscMaior, 0, 1, 2); // Começa a Resolver a TORRE DE HANOI apartir da recursividade
+
+                printf("\n\n%.0lf passos necessarios para resolver o problema.\n\n", pow(numD, 2)-1);
+
+                free(matriz); // Libera a memoria usada para fazer a Matriz onde foi montada a TORRE DE HANOI
+
+                system("pause");
             break;
 
             case 2:
-                opcao = imprimeMenu(checar);
+                opcao = imprimeMenu(2);
             break;
 
             case 3:
-                opcao = imprimeMenu(checar);
+                opcao = imprimeMenu(3);
             break;
 
-            case 0:
-                system("CLS");
-                exit(-1);
+            case 4:
+                opcao = 4;
             break;
 
             default:
-                opcao == 4;
+                printf("Opcaoo invalida\n");
         } //FINAL DO SWITCH CASE checar
 
-    } while(opcao != 1);
+    } while(opcao != 4);
 
-    system("CLS");
-
-    printf("Digite o numero de Discos da Torre, entre 1 e 10: ");
-    scanf("%d", &numD);
-    printf("\n");
-
-    if (numD > 10){ // VERIFICAÇÃO DO NUMERO DE DISCOS 1
-        printf("N%co %c possivel utilizar mais de 10 discos na torre por conta de distor%c%co de tela.\n", 198, 130, 135, 198);
-        exit(-1);
-    } else
-        if (numD < 1) { // VERIFICAÇÃO DO NUMERO DE DISCOS 2
-            printf("N%co %c possivel utilizar menos de 1 disco na torre.\n", 198, 130);
-            exit(-1);
-        }
-
-    matriz = malloc(sizeof(int)*pilhas*numD); // ALOCA A MATRIZ ONDE OS DISCOS SERÃO DESENHADOS
-
-    if(matriz == NULL){
-        printf("FALTA DE MEMORIA!");
-        exit(-1);
-    } // FINAL DA VERIFICAÇÃO DA MATRIZ
-
-    for(i=0; i< pilhas; i++)              // CRIA A TORRE NA PILHA 0 DA MATRIZ --- Número de Colunas
-        for(j=numD-1; j >= 0 ; j--)       // Número de Linhas
-            if(i==0){                     //
-                matriz[numD*i+j] = disco; // Define Tamanho
-                disco += 2;               // Do Disco Maior
-            }                             //
-            else{                         //
-                matriz[numD*i+j] = 0;     // Deixa todas as posições das pilhas 1 e 2 vazias
-            }
-
-    tamDiscMaior = disco;
-
-    imprimeDisco( matriz, pilhas, numD, tamDiscMaior); // Imprime na tela o passo 0 que são todos os discos empilhados na pilha 0
-
-    printf("\n");
-    for (i = 0; i <= (tamDiscMaior*3)+8; i++) {
-        printf("*");
-    }
-    printf("\n");
-
-    resolveHanoi( matriz, pilhas, numD, numD, tamDiscMaior, 0, 1, 2); // Começa a Resolver a TORRE DE HANOI apartir da recursividade
-
-    printf("\n\n%.0lf passos necessarios para resolver o problema.\n\n", pow(numD, 2)-1);
-
-    free(matriz); // Libera a memoria usada para fazer a Matriz onde foi montada a TORRE DE HANOI
+    system("CLS && pause");
 
     return 0;
 }
@@ -352,10 +354,8 @@ int imprimeMenu(int opcao){
         printf("\nSobre a saida:\n\n");
         printf("Aparecer%c desenhado na tela o passo a passo de como resolver o problema da TORRE DE HANOI\n\n", 160);
 
-        printf("Digite (4) para voltar ao menu ou (1) para ir direto ao programa: ");
-        gets(numero);
-
-        return atoi(numero);
+        system("pause");
+        return 5;
     }
     else
     if(opcao == 3){
@@ -369,10 +369,8 @@ int imprimeMenu(int opcao){
         printf("capacidade de mem%cria de trabalho, e principalmente de planejamento e solu%c%co de problemas.\n\n", 162, 135, 198);
         printf("Fonte: https://pt.wikipedia.org/wiki/Torre_de_Hanoi\n\n");
 
-        printf("Digite (4) para voltar ao menu ou (1) para ir direto ao programa: ");
-        gets(numero);
-
-        return atoi(numero);
+        system("pause");
+        return 5;
     }
     else
     if(opcao == 4){
